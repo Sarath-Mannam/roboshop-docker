@@ -1,6 +1,8 @@
 FROM nginx
 RUN rm -rf /usr/share/nginx/html/index.html
-COPY roboshop.conf /etc/nginx/conf.d/roboshop.conf
+RUN rm -rf /etc/nginx/nginx.conf
+RUN rm -rf /etc/nginx/conf.d/default.conf
+COPY roboshop.conf /etc/nginx/nginx.conf
 # Here copied reverse proxy configuration
 ADD static /usr/share/nginx/html/
 # Here copied roboshop project static code
